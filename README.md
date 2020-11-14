@@ -57,11 +57,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: index-app-service
-#  labels:
-#    app: index-app
+  
 spec:
   selector:
-   # matchLabels:
     app: index-app
   ports:
     - protocol: TCP
@@ -107,11 +105,9 @@ kind: Service
 metadata:
   name: index-app-service
   namespace: dev
-#  labels:
-#    app: index-app
+
 spec:
   selector:
-   # matchLabels:
     app: index-app
   ports:
     - protocol: TCP
@@ -121,7 +117,6 @@ spec:
 
   # Service Deployment Into Kubernetes from namespaces
 Kubernetes service yaml = staging
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -157,11 +152,9 @@ kind: Service
 metadata:
   name: index-app-service
   namespace: staging
-#  labels:
-#    app: index-app
+
 spec:
   selector:
-   # matchLabels:
     app: index-app
   ports:
     - protocol: TCP
@@ -207,11 +200,9 @@ kind: Service
 metadata:
   name: index-app-service
   namespace: prod
-#  labels:
-#    app: index-app
+
 spec:
   selector:
-   # matchLabels:
     app: index-app
   ports:
     - protocol: TCP
