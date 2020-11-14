@@ -18,36 +18,35 @@ static-html-docker-server-kubernetes-deployment <a name="TOP"></a>
     docker login 
     docker push bungyan07/index-app:v1
 
+# Architecture #
+
+# Service Deployment Into Kubernetes  #
+
+    Kubernetes service yaml = default
+
+# Service Deployment Into Kubernetes from namespaces  #
+
+    Kubernetes service yaml = dev
+
+# Service Deployment Into Kubernetes from namespaces  #
+
+    Kubernetes service yaml = staging
 
 
+# Service Deployment Into Kubernetes from namespaces  #
+    Kubernetes service yaml = prod
 
 
- 
-# Architecture
+# Run Service Deployment Into Kubernetes #
+    kubectl apply -f yaml -n (namespaces)
 
-# Service Deployment Into Kubernetes
-Kubernetes service yaml = default
-
-I think you should use an
-`<addr>` element here instead.
-
-# Service Deployment Into Kubernetes from namespaces
-Kubernetes service yaml = dev
-
-# Service Deployment Into Kubernetes from namespaces
-Kubernetes service yaml = staging
-
-# Service Deployment Into Kubernetes from namespaces
-Kubernetes service yaml = prod
-
-
-# Run Service Deployment Into Kubernetes 
-kubectl apply -f yaml -n (namespaces)
-
-# add horizontal pod autoscaling on web app with cpu and memory metrics
-
-# Run Service HPA Deployment Into Kubernetes 
-kubectl apply -f yaml -n 
+# add horizontal pod autoscaling on web app with cpu and memory metrics #
+    kubectl get pods 
+    kubectl get pods --all-namespaces
+    kubectl get hpa
+    
+# Run Service HPA Deployment Into Kubernetes #
+    kubectl apply -f yaml -n 
  
 
 
