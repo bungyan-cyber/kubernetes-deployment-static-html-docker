@@ -23,8 +23,7 @@ Steps for push to dockerhub repository
 
 # Service Deployment Into Kubernetes
 Kubernetes service yaml = default
-
-* apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: index-app-deployment
@@ -57,7 +56,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: index-app-service
-  
+
 spec:
   selector:
     app: index-app
