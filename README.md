@@ -23,7 +23,13 @@ static-html-docker-server-kubernetes-deployment <a name="TOP"></a>
 # Service Deployment Into Kubernetes  #
 
     Kubernetes service yaml = default
-
+    kubectl get componentstatuses
+    kubectl cluster-info
+    kubectl get nodes
+    kubectl create namespace staging
+    kubectl create namespace production
+    kubectl create namespace dev
+    
 # Service Deployment Into Kubernetes from namespaces  #
 
     Kubernetes service yaml = dev
@@ -32,62 +38,18 @@ static-html-docker-server-kubernetes-deployment <a name="TOP"></a>
 
     Kubernetes service yaml = staging
 
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: index-app-deployment
-  namespace: staging
-  labels:
-    app: index-app
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: index-app
-  template:
-    metadata:
-      labels:
-        app: index-app
-    spec:
-      containers:
-      - name: index-app
-        image: bungyan07/index-app:v1
-        ports:
-        - containerPort: 80
-        resources:
-          limits:
-            cpu: 500m
-            memory: 200Mi
-          requests:
-            cpu: 200m
-            memory: 100Mi
-            ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: index-app-service
-  namespace: staging
-
-spec:
-  selector:
-    app: index-app
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-  type: LoadBalancer
-
-
-
 # Service Deployment Into Kubernetes from namespaces  #
-    Kubernetes service yaml = prod
 
+    Kubernetes service yaml = prod
 
 # Run Service Deployment Into Kubernetes #
     kubectl apply -f yaml -n (namespaces)
 
 # add horizontal pod autoscaling on web app with cpu and memory metrics #
     kubectl get pods 
+    kubectl get pods --all-namespaces -o wide
+    kubectl get pod -o wide
+    kubectl get services
     kubectl get pods --all-namespaces
     kubectl get hpa
 
