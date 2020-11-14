@@ -2,9 +2,9 @@ static-html-docker-server-kubernetes-deployment <a name="TOP"></a>
 ===================
 
 - - - - 
-# Heading 1 #
+# Steps for Deploying a Static HTML Site with Docker  #
 
-    Markup :  # Heading 1 #
+    Markup :  # docker build -t index-app:v1 . #
 
     -OR-
 
