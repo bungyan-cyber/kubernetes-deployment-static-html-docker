@@ -2,21 +2,21 @@ static-html-docker-server-kubernetes-deployment<a name="TOP"></a>
 ===================
 
 - - - - 
-# Heading 1 #
+# Steps for Deploying a Static HTML Site with Docker  #
 
-    Steps for Deploying a Static HTML Site with Docker   
+  Steps for Deploying a Static HTML Site with Docker   
 
-* docker build -t index-app:v1 .
+docker build -t index-app:v1 .
 
-* docker run -d -p 80:80 index-app:v1
+docker run -d -p 80:80 index-app:v1
 
-* docker ps
+docker ps
 
-* docker container 
+docker container 
 
-* docker image list
+docker image list
 
-Steps for push to dockerhub repository
+# Steps for push to dockerhub repository #
 
 * docker tag index-app:v1 bungyan07/index-app:v1
 
@@ -24,10 +24,8 @@ Steps for push to dockerhub repository
 
 * docker push bungyan07/index-app:v1
 
-## Heading 2 ##
-
-Service Deployment Into Kubernetes
-Kubernetes service yaml = default
+## Service Deployment Into Kubernetes
+Kubernetes service yaml = default ##
 
 apiVersion: apps/v1
 kind: Deployment
