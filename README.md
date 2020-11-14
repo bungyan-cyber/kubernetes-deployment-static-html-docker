@@ -24,6 +24,9 @@ Steps for push to dockerhub repository
 # Service Deployment Into Kubernetes
 Kubernetes service yaml = default
 
+I think you should use an
+`<addr>` element here instead.
+
 # Service Deployment Into Kubernetes from namespaces
 Kubernetes service yaml = dev
 
