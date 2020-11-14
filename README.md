@@ -1,22 +1,17 @@
-static-html-docker-server-kubernetes-deployment<a name="TOP"></a>
-===================
+# static-html-docker-server-kubernetes-deployment 
+Steps for Deploying a Static HTML Site with Docker   
 
-- - - - 
-# Steps for Deploying a Static HTML Site with Docker  #
+* docker build -t index-app:v1 .
 
-  Steps for Deploying a Static HTML Site with Docker   
+* docker run -d -p 80:80 index-app:v1
 
-docker build -t index-app:v1 .
+* docker ps
 
-docker run -d -p 80:80 index-app:v1
+* docker container 
 
-docker ps
+* docker image list
 
-docker container 
-
-docker image list
-
-# Steps for push to dockerhub repository #
+Steps for push to dockerhub repository
 
 * docker tag index-app:v1 bungyan07/index-app:v1
 
@@ -24,85 +19,41 @@ docker image list
 
 * docker push bungyan07/index-app:v1
 
-## Service Deployment Into Kubernetes
-Kubernetes service yaml = default ##
+# Architecture
 
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: index-app-deployment
-  labels:
-    app: index-app
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: index-app
-  template:
-    metadata:
-      labels:
-        app: index-app
-    spec:
-      containers:
-      - name: index-app
-        image: bungyan07/index-app:v1
-        ports:
-        - containerPort: 80
-        resources:
-          limits:
-            cpu: 500m
-            memory: 200Mi
-          requests:
-            cpu: 200m
-            memory: 100Mi
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: index-app-service
-  labels:
-  app: index-app
-spec:
-  selector:
-    matchLabels:
-    app: index-app
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-  type: LoadBalancer
+# Service Deployment Into Kubernetes
+Kubernetes service yaml = default
+
+I think you should use an
+`<addr>` element here instead.
+
+# Service Deployment Into Kubernetes from namespaces
+Kubernetes service yaml = dev
+
+# Service Deployment Into Kubernetes from namespaces
+Kubernetes service yaml = staging
+
+# Service Deployment Into Kubernetes from namespaces
+Kubernetes service yaml = prod
 
 
-### Heading 3 ###
+# Run Service Deployment Into Kubernetes 
+kubectl apply -f yaml -n (namespaces)
 
-    Markup :  ### Heading 3 ###
+# add horizontal pod autoscaling on web app with cpu and memory metrics
 
-#### Heading 4 ####
+# Run Service HPA Deployment Into Kubernetes 
+kubectl apply -f yaml -n 
+ 
 
-    Markup :  #### Heading 4 ####
 
 
-Common text
 
-    Markup :  Common text
 
-_Emphasized text_
 
-    Markup :  _Emphasized text_ or *Emphasized text*
 
-~~Strikethrough text~~
 
-    Markup :  ~~Strikethrough text~~
 
-__Strong text__
 
-    Markup :  __Strong text__ or **Strong text**
 
-___Strong emphasized text___
-
-    Markup :  ___Strong emphasized text___ or ***Strong emphasized text***
-
-[Named Link](http://www.google.fr/ "Named link title") and http://www.google.fr/ or <http://example.com/>
-
-    Markup :  [Named Link](http://www.google.fr/ "Named link title") and http://www.google.fr/ or <http://example.com/>
 
